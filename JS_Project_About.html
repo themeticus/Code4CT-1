@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Code4CT</title>
+
+    <!-- link to external css -->
+    <link rel="stylesheet" href="JS_Project.css">
+    <!-- Link for font family -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <!-- link for bootstrap icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- link for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Jquery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style media="screen">
+
+    .container {
+      width: 100%;
+
+    }
+
+    /* For devices larger than 400px */
+    @media (min-width: 400px) {
+      .container {
+        width: 85%;
+        padding: 0; }
+    }
+
+    /* For devices larger than 550px */
+    @media (min-width: 550px) {
+      .container {
+        width: 80%;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        border: 1px solid #fff;
+        
+      }
+     }
+      /*The following divs are styled according to their id(s)*/
+      #welcome {
+        width: 400px;
+        height: 400px;
+        word-wrap: break-word;
+      }
+
+      #aboutus {
+        float: left;
+        width: 1350px;
+      }
+
+      #team {
+        width: 750px;
+        margin-top: 800px;
+        padding-top: 100px;
+        margin-left: 150px;
+        font-size: 14px;
+      }
+      /*team social media icons*/
+      #team i {
+        color: grey;
+        margin-top: 0px;
+        padding: 5px;
+      }
+      /*The radial count up is done with canva*/
+      canvas {
+        display: inline-block;
+        background-color: black;
+        padding: 40px;
+        margin-left: 65px;
+      }
+      /*this id styles the area around the radial up*/
+      #count {
+        height: 430px;
+        width: 100%;
+        height: 350px;
+        padding-left: 30px;
+        background-color: black;
+      }
+
+      #count p {
+        color: #fff;
+        /*font-size: 12px;*/
+
+        text-align: center;
+      }
+      /* subscribe section styling*/
+      #subscribe {
+        margin: 10px 0px 20px 500px;
+      }
+      /*carousel styling*/
+      #partners{
+        width: 10000%;
+      }
+      /*/*this styling works with JQuery and regulates the speed and loop of the carousel*/
+      #partners.ready > *{
+      display: inline-block;
+      float:left;
+      overflow: hidden;
+
+      webkit-animation-timing-function: linear;
+      animation-timing-function: linear;
+
+
+      -webkit-animation-timing-function: linear;
+      animation-timing-function: linear;
+
+      -webkit-animation-delay: 1s;
+      animation-delay: 1s;
+
+
+      -webkit-animation-duration: 20s;
+      animation-duration: 20s;
+
+
+      -webkit-animation-name: marginator;
+      animation-name: marginator;
+
+
+
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      }
+      /*the carousel will pause on hover and the movement is regulated here*/
+      #partners:hover > *{
+
+
+        -webkit-animation-play-state: paused;
+        animation-play-state: paused;
+      }
+
+      @-webkit-keyframes marginator {
+        0% {
+          -webkit-transform: translate(0,0);
+          -webkit-transform: translate3d(0,0,0);
+        }
+        100% {
+          -webkit-transform: translate(-100%,0);
+          -webkit-transform: translate3d(-100%,0,0);
+        }
+      }
+
+      @keyframes marginator {
+        0% {
+
+          -webkit-transform: translate(0,0);
+          transform: translate(0,0);
+
+          -webkit-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
+        }
+        100% {
+
+
+          -webkit-transform: translate(-100%,0);
+          transform: translate(-100%,0);
+
+
+          -webkit-transform: translate3d(-100%,0,0);
+          transform: translate3d(-100%,0,0);
+        }
+      }
+
+      /*This wrapper holds the carousel*/
+      #partners-wrapper{
+        overflow: hidden;
+        padding-top: 20px;
+        background-color: black;
+        width: 100%;
+        height: 200px;
+      }
+
+      #partners img {
+        margin: 5px;
+      }
+
+      /*grid display is used to seperate the content in footer*/
+      footer{
+        display: grid;
+        grid-column: 1 / 12;
+        grid-row: 10 / 11;
+        margin: 70px 0px 30px 20px;
+        height: 50px;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(4, 3fr);
+        grid-column-gap: 4vw;
+        grid-auto-columns: 25%;
+        font-size: 11px;
+        text-align: left;
+      }
+
+      footer ul li{
+        list-style-type: none;
+      }
+
+      footer div{
+        width: 200px;
+        margin-bottom: 20px;
+      }
+
+      #bottomfooter {
+        grid-row: 11/12;
+        grid-column: 1 / 12;
+        background-color: #f55555;
+        margin-top: 120px;
+        width: 100%;
+        text-align: center;
+      }
+
+      #bottomfooter p {
+        padding-right: 70px;
+        color: white;
+        font-size: 11px;
+        text-indent: 20px;
+      }
+
+      .scrolltop {
+      	display:none;
+      	width:100%;
+      	margin:0 auto;
+      	position:fixed;
+      	bottom:20px;
+      	right:10px;
+      }
+
+      .scroll {
+      	position:absolute;
+      	right:20px;
+      	bottom:20px;
+      	background:#b2b2b2;
+      	background:rgba(178,178,178,0.7);
+      	padding:20px;
+      	text-align: center;
+      	margin: 0 0 0 0;
+      	cursor:pointer;
+      	transition: 0.5s;
+      	-moz-transition: 0.5s;
+      	-webkit-transition: 0.5s;
+      	-o-transition: 0.5s;
+      }
+
+      .scroll:hover {
+      	background:rgba(178,178,178,1.0);
+      	transition: 0.5s;
+      	-moz-transition: 0.5s;
+      	-webkit-transition: 0.5s;
+      	-o-transition: 0.5s;
+      }
+
+      .scroll:hover .fa {
+      	padding-top:-10px;
+      }
+
+      .scroll .fa {
+      	font-size:30px;
+      	margin-top:-5px;
+      	margin-left:1px;
+      	transition: 0.5s;
+      	-moz-transition: 0.5s;
+      	-webkit-transition: 0.5s;
+      	-o-transition: 0.5s;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class='thetop'></div>
+                      <!-- NAV -->
+    <nav>
+
+      <ul>
+
+        <li><a href="JS_Project_Home.html"><img style="margin-right: 250px"  src="http://code4ct.com/wp-content/uploads/2016/06/code4ct-logo-1.jpg" height= "50px" width= "150px"></a></li>
+          <li style="margin-top:15px"><a href="JS_Project_Home.html">HOME</a></li>
+            <li style="margin-top:15px"><a href="JS_Project_About.html">ABOUT</a></li>
+                <li style="margin-top:15px"><a href="JS_Project_Portfolio.html">PORTFOLIO</a></li>
+                    <li style="margin-top:15px"><a href="JS_Project_Contact.html">CONTACT US</a></li>
+                        <li><input style="margin: 30px 0px 0px 150px; " type="search" placeholder="Search"></li>
+                        <li style="margin-top: 20px"><a href><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+
+    </nav>
+                  <!-- header
+                 sub-header -->
+    <header>
+
+      <h1>About US</h1>
+      <p id ="subhead"> Home → About Us </p>
+
+    </header>
+                    <!-- content -->
+    <div style="margin-left: 150px; margin-top: 30px; float: left" id="welcome">
+      <h3><span style = "border-bottom: 2px solid #ED524E">Welcome</span> to Code4CT</h3>
+      <p>Code for Cape Town (Code4CT) is a programme that introduces young girls to basic web building skills and exposes them to opportunities in the Information and Communication Technologies (ICT) sector. Participants are trained in web development, design principles, as well as courses in professional development. Code4CT aims to inspire a generation of young girls who are well-prepared with a toolkit of technical and soft skills in order to achieve high impact in the workplace.</p>
+
+      <button style="color: #fff">Our Courses</button>
+
+      <img style="margin-left: 550px; margin-top: -280px;" src="Images\IMG_7408.JPG" alt="pic" height="300px" width="400px">
+    </div>
+
+    <div id="aboutus">
+      <img style="margin-left: 150px" src="Images\IMG_7483.JPG" alt="picture" height="400px" width="420px">
+      <div>
+      <h3 style="margin-left: 700px; margin-top: -400px"><span style = "border-bottom: 2px solid #ED524E">Who</span> We Are</h3>
+      <p style="width: 400px; margin-left: 700px; margin-bottom: 50px">Code4CT is broadening perspectives about career opportunities for many girls and is showing them that the ICT sector offers exciting career paths with the opportunity for social impact. </p>
+
+    </div>
+
+    <div id="textbox">
+
+      <div style="width: 150px; margin-left: 700px">
+        <h4><span style = "border-bottom: 2px solid #ED524E">Our</span> Vision</h4>
+        <p>Young women will discover how they can leverage technology for social innovation.</p>
+      </div>
+
+      <div style="width: 150px; margin-left: 900px; margin-top: -118px">
+        <h4><span style = "border-bottom: 2px solid #ED524E">Our</span> Mission</h4>
+        <p>Code4CT exists to see young South African women in positions to drive African innovation.</p>
+      </div>
+
+      <div style="width: 150px; margin-left: 700px; margin-top: 20px;">
+        <h4><span style = "border-bottom: 2px solid #ED524E">Our</span> Value</h4>
+        <p>We value holistic wellness, this results in the optimal functioning of the collective.</p>
+      </div>
+
+      <div style="width: 150px; margin-left: 900px; margin-top: -120px">
+        <h4><span style = "border-bottom: 2px solid #ED524E">Our</span> Work</h4>
+        <p>We are committed to creating a racially and culturally diverse learning environment.</p>
+      </div>
+
+    </div>
+    </div>
+
+    <div id="team">
+      <h3><span style = "border-bottom: 2px solid #ED524E">Meet</span> The Team</h3>
+      <p>Over the past 3 years, Code for Cape Town has reached over 600 young women with coding and social innovation. Not only have they been exposed to coding but they have also done careers and life skills courses, design thinking workshops and social innovation projects to address local challenges.</p>
+
+      <div>
+        <img style="margin-top: 30px" src="Images\Team\Andrea1.jpg" alt="Andrea" height="200px" width="200px">
+        <p style="margin-left: 230px; margin-top: -180px"><b>Andrea Petersen</b></p>
+        <p style="margin-left: 230px"><em>Operations Lead</em></p>
+        <p style="width: 200px; margin-left: 230px">Andrea thrives on seeing key players in the Code4CT ecosystem discover how they can make the greatest impact.</p>
+        <p style="width: 200px; margin-left: 230px"><a href="https://www.facebook.com/code4ct/" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a href="https://twitter.com/@code4ct" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.instagram.com/code4ct/" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+          <a href="https://www.linkedin.com/company/9414552/" target="_blank"><i class="fa fa-linkedin"></i></a>
+          <a href="#" target="_blank"><i class="fa fa-skype"></i></a></p>
+      </div>
+
+      <div>
+        <img style="margin-top: -220px; margin-left: 530px" src="Images\Team\Emma1.jpg" alt="Emma" height="200px" width="200px">
+        <p style="margin-left: 750px; margin-top: -200px; width:200px"><b> Emma Dicks </b></p>
+        <p style="margin-left: 750px"><em>Operations Lead</em></p>
+        <p style="width: 200px; margin-left: 750px">Emma has been recognised on numerous prestigious listing including</p>
+        <p style="width: 200px; margin-left: 750px"><a href="https://www.facebook.com/code4ct/" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a href="https://twitter.com/@code4ct" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.instagram.com/code4ct/" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+          <a href="https://www.linkedin.com/company/9414552/" target="_blank"><i class="fa fa-linkedin"></i></a>
+          <a href="#" target="_blank"><i class="fa fa-skype"></i></a></p>
+      </div>
+
+      <div>
+        <img style="margin-top: 30px" src="Images\Team\Tegan2.jpg" alt="Tegan" height="200px" width="200px">
+        <p style="margin-left: 230px; margin-top: -180px"><b>Tegan Crous</b></p>
+        <p style="margin-left: 230px"><em>Program Lead</em></p>
+        <p style="width: 200px; margin-left: 230px">Tegan heads up the high school program, seeing them pursue their potential in a safe, nurturing environment.</p>
+        <p style="width: 200px; margin-left: 230px"><a href="https://www.facebook.com/code4ct/" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a href="https://twitter.com/@code4ct" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.instagram.com/code4ct/" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+          <a href="https://www.linkedin.com/company/9414552/" target="_blank"><i class="fa fa-linkedin"></i></a>
+          <a href="#" target="_blank"><i class="fa fa-skype"></i></a></p>
+      </div>
+
+      <div>
+        <img style="margin-top: -230px; margin-left: 530px" src="Images\Team\Tracy1.jpg" alt="Emma" height="200px" width="200px">
+        <p style="margin-left: 750px; margin-top: -200px; width:200px"><b> Tracy-Anne Sikenjana </b></p>
+        <p style="margin-left: 750px; width:200px"><em>Leadership Program Manager</em></p>
+        <p style="width: 200px; margin-left: 750px; ">During her time at Code4CT she facilitated coding classes and assisted with all program operations and logistics.</p>
+        <p style="width: 200px; margin-left: 750px; width:300px"><a href="https://www.facebook.com/code4ct/" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a href="https://twitter.com/@code4ct" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.instagram.com/code4ct/" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+          <a href="https://www.linkedin.com/company/9414552/" target="_blank"><i class="fa fa-linkedin"></i></a>
+          <a href="#" target="_blank"><i class="fa fa-skype"></i></a></p>
+      </div>
+
+    </div>
+                          <!-- RADIAL COUNT UP using canva with individual data percentages-->
+    <div id="count">
+
+      <canvas id="canvas-3" width="150" height="150" data-perc="85"></canvas>
+      <canvas id="canvas-4" width="150" height="150" data-perc="90"></canvas>
+      <canvas id="canvas-1" width="150" height="150" data-perc="80"></canvas>
+      <canvas id="canvas-2" width="150" height="150" data-perc="97"></canvas>
+
+      <p style = "width: 200px; margin-left: 80px; margin-top: -5px;"><ins>Web Design</ins></p>
+      <p style = "width: 200px; margin-left: 80px">Premium Web design & Web development in Cape Town.</p>
+
+      <p style = "width: 200px; margin-left: 380px; margin-top: -80px"><ins>Branding</ins></p>
+      <p style = "width: 200px; margin-left: 380px">Branding is one of the most important aspects of any business</p>
+
+      <p style = "width: 200px; margin-left: 680px; margin-top: -100px"><ins>Photography</ins></p>
+      <p style = "width: 200px; margin-left: 680px">Photography with a strong documentary approach. </p>
+
+      <p style = "width: 200px; margin-left: 980px; margin-top: -80px"><ins>Print-Design</ins></p>
+      <p style = "width: 200px; margin-left: 980px;">Print design, a subset of graphic design.</p>
+
+    </div>
+
+    <div id="subscribe">
+
+      <h2><i style="color: #ED524E" class="fa fa-paper-plane"></i> Subscribe To Us</h2>
+
+      <p style="margin-left: 50px">Sign up for our newsletter:</p>
+
+      <input style="margin-left: 20px" type="text" name="email" title="Sign up for our newsletter" placeholder="Your Email" autocomplete="off" class="mailchimp-subscribe__input">
+
+      <button>submit</button>
+
+    </div>
+                <!-- carousel -->
+    <div id="partners-wrapper">
+<div id="partners">
+  <div>
+    <img src="Images\Logos\transparent logos\takealot-logo-png.png" width="200px" height: "80px">
+    <img src="Images\Logos\transparent logos\deloitte-transparent.png" width="200px" height: "80px">
+    <img src="Images\Logos\eighty20_logo.gif" width="200px" height: "80px">
+    <img src="Images\Logos\lwandlelogo.png" width="200px" height: "80px">
+    <img src="Images\Logos\MAZARS_logo.jpg" width="200px" height: "80px">
+    <img src="Images\Logos\Mobenzi_Logo.png" width="200px" height: "80px">
+    <img src="Images\Logos\lwandlelogo.png" width="200px" height: "80px">
+    <img src="Images\Logos\transparent logos\takealot-logo-png.png" width="200px" height: "80px">
+    <img src="Images\Logos\TNS-logo-2012.png" width="200px" height: "80px">
+  </div>
+</div>
+</div>
+
+<footer>
+
+  <div>
+    <h4>Legal</h4>
+  <p>Code for Cape Town is a project of Innovate South Africa, which is a registered non-profit (137806NPO) and a Public Beneficiary Organisation (930050338)</p>
+
+</div>
+
+<div>
+
+<h4>Company</h4>
+<ul style = "padding: 5px">
+  <li><a href="JS_Project_About.html">ABOUT</a></li>
+  <li><a href="JS_Project_Portfolio.html">PORTFOLIO</a></li>
+  <li><a href="JS_Project_Courses.html">COURSES</a></li>
+  <li><a href="JS_Project_Contact.html">CONTACT</a></li>
+</ul>
+
+</div>
+
+<div>
+<h4>Learn More</h4>
+<ul style = "padding: 1px">
+  <li><a href="JS_Project_About.html">What we do</a></li>
+  <li><a href="JS_Project_Portfolio.html">Our Work</a></li>
+  <li><a href="JS_Project_Courses.html">Opportunities</a></li>
+</ul>
+</div>
+
+<div>
+  <h4>Contact</h4>
+  <p><span class="glyphicon glyphicon-earphone"></span> 021 685 0991 </p>
+  <p><span class="glyphicon glyphicon-envelope"></span> info@code4ct.com</p>
+  <p><span class="glyphicon glyphicon-map-marker"></span> Innovate South Africa, 403 Old Castle Brewery, 6 Beach Rd, Woodstock, Cape Town, 7915</p>
+</div>
+
+</footer>
+
+<div id ="bottomfooter">
+
+  <p>copyright © 2017 PRIVACY POLICY</p>
+
+  <p style="float: right">Follow Us:<a href="https://www.facebook.com/code4ct/" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/@code4ct" target="_blank"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.instagram.com/code4ct/" target="_blank"><i class="fa fa-instagram"></i></a>
+    <a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+    <a href="https://www.linkedin.com/company/9414552/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fa fa-skype"></i></a></p>
+
+</div>
+
+<div class='scrolltop'>
+  <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></div>
+</div>
+
+</div>
+
+    <script type="text/javascript">
+  var canvas = document.getElementsByTagName('canvas');
+
+  for (var i = 0; i < canvas.length; i++) {
+  progressBar(canvas[i].id);
+  }
+
+  // this function loads the canvas
+  function progressBar(canvasId) {
+  var canvas = document.getElementById(canvasId);
+  var ctx = canvas.getContext('2d');
+
+  //  variables are declared
+  var cWidth = canvas.width;
+  var cHeight = canvas.height;
+  var progressColor = '#ED524E';
+  var circleColor = '#333';
+  var rawPerc = canvas.getAttribute('data-perc');
+  var perc = parseInt(rawPerc);
+  var degrees = 0;
+  var endDegrees = (360*perc)/100;
+  // The moving circular line size
+  var lineWidth = 7;
+
+  // this function ensures that as long as the degrees are less than the stipulated amount, it will continue to run up.
+  function getDegrees() {
+    if(degrees < endDegrees) {
+      degrees++;
+    }
+    else {
+      clearInterval(degreesCall);
+    }
+    // this function is called here because the degrees work together with it
+    drawProgressBar();
+  }
+    // the radial progress bar is drawn within this function
+  function drawProgressBar() {
+    //clears the canvas after every instance
+    ctx.clearRect(0,0,cWidth,cHeight);
+
+    // drawing the background circle
+    ctx.beginPath();
+    ctx.strokeStyle = circleColor;
+    ctx.lineWidth = lineWidth -1;
+    ctx.arc(cHeight/2, cWidth/2, cWidth/3, 0, Math.PI*2, false);
+    ctx.stroke();
+    // the degrees has to be converted to radians for the code to work
+    var radians = 0;
+
+    // degrees are converted
+    radians = degrees * Math.PI/180;
+    // drawing the actual progressBar
+    ctx.beginPath();
+    ctx.strokeStyle = progressColor;
+    ctx.lineWidth = lineWidth;
+    ctx.arc(cHeight/2, cWidth/2, cWidth/3, 0 - 90*Math.PI/180, radians - 90*Math.PI/180, false);
+    ctx.stroke();
+
+    // This adds and styles the text within the radial progress bar
+    ctx.fillStyle = progressColor;
+    ctx.font = '20px Arial';
+    var outputTextPerc = Math.floor(degrees/360*100)+'%';
+    var outputTextPercWidth = ctx.measureText(outputTextPerc).width;
+    ctx.fillText(outputTextPerc, cWidth/1.7 - outputTextPercWidth/1.5, cHeight/1.7 - 10);
+  }
+
+  degreesCall = setInterval(getDegrees, 10/(degrees - endDegrees));
+  }
+
+    </script>
+
+    <script type="text/javascript">
+
+    // the scrollTop button will be hidden until you have scrolled 50 pixels from the top.
+    // It will then fade in. when the "top" button is clicked the arrow will once again be hidden
+    //smooth scroll will occur over 1000 miliseconds
+    $(window).scroll(function() {
+  if ($(this).scrollTop() > 50 ) {
+      $('.scrolltop:hidden').stop(true, true).fadeIn();
+  } else {
+      $('.scrolltop').stop(true, true).fadeOut();
+  }
+});
+$(function() {
+  $(".scroll").click(function() {
+    $("html,body").animate({
+      scrollTop:$(".thetop").offset().top
+    }, "1000");
+    return false
+  })
+})
+
+    // This function uses the .clone() + append method to prevent the elements from being moved from it's old location and inserts in into the partners div in order for the carousel to run infinitely.
+
+    $(function () {
+    var $first=$('#partners>:first-child');
+    $('#partners').width($first.outerWidth(true));
+    $first.clone(true).appendTo('#partners');
+    $('#partners').addClass('ready');
+    })
+    </script>
+  </body>
+
+</html>

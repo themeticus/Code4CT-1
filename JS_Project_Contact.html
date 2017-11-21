@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+      <title>CONTACT</title>
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="JS_Project.css">
+    <!-- link for bootstrap icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- link for social media icons -->
+    <!-- link for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style media="screen">
+
+    #contactform {
+      display: grid;
+      height: auto;
+      padding: 20px;
+      margin: 20px;
+      width: 500px;
+      word-wrap: break-word;
+
+    }
+
+    #contactinfo {
+      height: auto;
+      padding: 27px;
+      margin: -400px 0px 200px 800px ;
+      width: 500px;
+      word-wrap: break-word;
+
+    }
+
+    #contactform input {
+      margin: 2px;
+    }
+
+    #map{
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid lightgrey;
+    }
+
+    footer{
+      display: grid;
+      grid-column: 1 / 12;
+      grid-row: 10 / 11;
+      padding: 20px;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      height: 50px;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(4, 3fr);
+      grid-column-gap: 4vw;
+      grid-auto-columns: 25%;
+      font-size: 10px;
+      text-align: left;
+    }
+
+    footer div{
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
+    #bottomfooter {
+      grid-row: 11/12;
+      grid-column: 1 / 12;
+      background-color: #f55555;
+      width: 1400px;
+      margin-top: 120px;
+      margin-left: -120px;
+      text-align: center;
+
+    }
+
+    #bottomfooter p {
+      padding-right: 70px;
+      color: white;
+      font-size: 11px;
+      text-indent: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      text-align: left;
+      line-height: 20px;
+    }
+
+    li {
+      list-style-position: inside;
+    }
+
+    li a {
+      color: grey;
+      text-decoration: none;
+      padding: 5px;
+      text-align: left;
+    }
+
+    li a:hover {
+      color: #ED524E;
+    }
+
+    li a:active {
+      color: grey;
+    }
+
+    input {
+      margin: 2px;
+      margin-bottom: 4px;
+    }
+    textarea {
+      margin: 2px;
+    }
+
+    button {
+      color: white;
+      font-size: 17px;
+      background-color: #ED524E;
+      padding: 10px;
+      font-weight: bold;
+      border-radius: 4px;
+      border-color: #ED524E;
+    }
+
+    i {
+      color: white;
+    }
+
+    input{
+      padding: 0;
+      margin: 0;
+    }
+
+    .scrolltop {
+    	display:none;
+    	width:100%;
+    	margin:0 auto;
+    	position:fixed;
+    	bottom:20px;
+    	right:10px;
+    }
+
+    .scroll {
+    	position:absolute;
+    	right:20px;
+    	bottom:20px;
+    	background:#b2b2b2;
+    	background:rgba(178,178,178,0.7);
+    	padding:20px;
+    	text-align: center;
+    	margin: 0 0 0 0;
+    	cursor:pointer;
+    	transition: 0.5s;
+    	-moz-transition: 0.5s;
+    	-webkit-transition: 0.5s;
+    	-o-transition: 0.5s;
+    }
+
+    .scroll:hover {
+    	background:rgba(178,178,178,1.0);
+    	transition: 0.5s;
+    	-moz-transition: 0.5s;
+    	-webkit-transition: 0.5s;
+    	-o-transition: 0.5s;
+    }
+
+    .scroll:hover .fa {
+    	padding-top:-10px;
+    }
+
+    .scroll .fa {
+    	font-size:30px;
+    	margin-top:-5px;
+    	margin-left:1px;
+    	transition: 0.5s;
+    	-moz-transition: 0.5s;
+    	-webkit-transition: 0.5s;
+    	-o-transition: 0.5s;
+    }
+
+    </style>
+
+    <title></title>
+  </head>
+  <body>
+    <div class="wrapper">
+    <div class='thetop'></div>
+      <nav>
+
+        <ul>
+
+          <li><a href="JS_Project_Home.html"><img style="margin-right: 250px"  src="http://code4ct.com/wp-content/uploads/2016/06/code4ct-logo-1.jpg" height= "50px" width= "150px"></a></li>
+            <li style="margin-top:15px"><a href="JS_Project_Home.html">HOME</a></li>
+              <li style="margin-top:15px"><a href="JS_Project_About.html">ABOUT</a></li>
+                  <li style="margin-top:15px"><a href="JS_Project_Portfolio.html">PORTFOLIO</a></li>
+                      <li style="margin-top:15px"><a href="JS_Project_Contact.html">CONTACT US</a></li>
+                          <li><input style="margin: 30px 0px 0px 150px; " type="search" placeholder="Search"></li>
+                          <li style="margin-top: 20px"><a href><span class="glyphicon glyphicon-search"></span></a></li>
+        </ul>
+
+      </nav>
+
+    <header>
+      <h1>CONTACT US</h1>
+      <p id ="subhead"> Home → Contact Us </p>
+    </header>
+
+    <section id = "contactform">
+      <h2><span style="border-bottom: 1px solid #ED524E">Send</span> Us a Message</h2>
+        <form name="myForm" onsubmit="return(validate());">
+          <input type="text" id = "yourname" placeholder="Your name">
+          <input name="email" type="text" class="inputs" id="email_address"
+ value="any@any.com">
+          <input style="padding-right:1px" type="text" id = "yournumber" placeholder="Phone number">
+          <textarea name="message" rows="9" cols="74" placeholder="Your message"></textarea>
+
+          <input type="submit">Send Email</button>
+        </form>
+
+    </section>
+
+    <section id = "contactinfo">
+
+      <h2><span style="border-bottom: 1px solid #ED524E">Contact</span> Info</h2>
+
+      <p><span class="glyphicon glyphicon-earphone"></span> 021 685 0991 </p>
+      <p><span class="glyphicon glyphicon-envelope"></span> info@code4ct.com</p>
+      <p><span class="glyphicon glyphicon-time"></span> Mon-Fri 09:00 to 12:00</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Innovate South Africa, 403 Old Castle Brewery, 6 Beach Rd, Woodstock, Cape Town, 7915</p>
+
+    </section>
+
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.6380624459994!2d18.446525914552417!3d-33.924713680640835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5d9854044ed9%3A0x6a0ebf49da5aabab!2sCodeSpace!5e0!3m2!1sen!2sza!4v1510228086379" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+
+      <footer>
+
+        <div>
+          <h4>Legal</h4>
+        <p>Code for Cape Town is a project of Innovate South Africa, which is a registered non-profit (137806NPO) and a Public Beneficiary Organisation (930050338)</p>
+
+      </div>
+
+        <div>
+
+        <h4>Company</h4>
+        <ul style = "padding: 5px; list-style-type: none">
+          <li><a href="JS_Project_About.html">ABOUT</a></li>
+          <li><a href="JS_Project_Portfolio.html">PORTFOLIO</a></li>
+          <li><a href="JS_Project_Courses.html">COURSES</a></li>
+          <li><a href="JS_Project_Contact.html">CONTACT</a></li>
+        </ul>
+
+      </div>
+
+      <div>
+        <h4>Learn More</h4>
+        <ul style = "padding: 1px; list-style-type: none">
+          <li><a href="JS_Project_About.html">What we do</a></li>
+          <li><a href="JS_Project_Portfolio.html">Our Work</a></li>
+          <li><a href="JS_Project_Courses.html">Opportunities</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <p><span class="glyphicon glyphicon-earphone"></span> 021 685 0991 </p>
+        <p><span class="glyphicon glyphicon-envelope"></span> info@code4ct.com</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span> Innovate South Africa, 403 Old Castle Brewery, 6 Beach Rd, Woodstock, Cape Town, 7915</p>
+      </div>
+
+      </footer>
+
+      <section id ="bottomfooter">
+
+        <p>copyright © 2017 PRIVACY POLICY</p>
+
+        <p style="float: right">Follow Us:<a href="https://www.facebook.com/code4ct/" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a href="https://twitter.com/@code4ct" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.instagram.com/code4ct/" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+          <a href="https://www.linkedin.com/company/9414552/" target="_blank"><i class="fa fa-linkedin"></i></a>
+          <a href="#" target="_blank"><i class="fa fa-skype"></i></a></p>
+
+      </section>
+
+  </div>
+
+  <div class='scrolltop'>
+    <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></div>
+</div>
+
+
+    <script type="text/javascript">
+    // the scrollTop button will be hidden until you have scrolled 50 pixels from the top.
+    // It will then fade in. when the "top" button is clicked the arrow will once again be hidden
+    //smooth scroll will occur over 1000 miliseconds
+    $(window).scroll(function() {
+  if ($(this).scrollTop() > 50 ) {
+      $('.scrolltop:hidden').stop(true, true).fadeIn();
+  } else {
+      $('.scrolltop').stop(true, true).fadeOut();
+  }
+});
+$(function() {
+  $(".scroll").click(function() {
+    $("html,body").animate({
+      scrollTop:$(".thetop").offset().top
+    }, "1000");
+    return false
+  })
+})
+
+<script type="text/javascript">
+   <!--
+      // Form validation code will come here.
+      function validate()
+      {
+
+         if( document.myForm.Name.value == "" )
+         {
+            alert( "Please provide your name!" );
+            document.myForm.Name.focus() ;
+            return false;
+         }
+
+         if( document.myForm.EMail.value == "" )
+         {
+            alert( "Please provide your Email!" );
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+
+         if( document.myForm.Zip.value == "" ||
+         isNaN( document.myForm.Zip.value ) ||
+         document.myForm.Zip.value.length != 5 )
+         {
+            alert( "Please provide a zip in the format #####." );
+            document.myForm.Zip.focus() ;
+            return false;
+         }
+
+         if( document.myForm.Country.value == "-1" )
+         {
+            alert( "Please provide your country!" );
+            return false;
+         }
+         return( true );
+      }
+   //-->
+</script>
+    </script>
+  </body>
+</html>

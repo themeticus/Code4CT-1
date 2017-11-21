@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta charset="utf-8">
+    <!-- link to external css -->
+    <link rel="stylesheet" href="JS_Project.css">
+    <!-- link for jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- link for bootstrap icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Google fonts link -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <!-- Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>PORTFOLIO</title>
+
+    <style media="screen">
+
+      header {
+          background-color: #EEEEEE;
+          height: 200px;
+      }
+
+      header p {
+          padding-top: 0px;
+          font-size: 18px;
+          text-align: center;
+          color: #f55555;
+      }
+
+      .photos {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        margin-top: 10px;
+        line-height: 150px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+      }
+
+              /* Style the Image Used to Trigger the Modal */
+        .galleryImg {
+           border-radius: 5px;
+           cursor: pointer;
+           transition: 0.3s;
+        }
+
+        .galleryImg:hover {opacity: 0.7;}
+
+        /* The Modal (background) */
+        .modal {
+           display: none; /* Hidden by default */
+           position: fixed; /* Stay in place */
+           z-index: 1; /* Sit on top */
+           padding-top: 100px; /* Location of the box */
+           left: 0;
+           top: 0;
+           width: 100%; /* Full width */
+           height: 100%; /* Full height */
+           overflow: auto; /* Enable scroll if needed */
+           background-color: rgb(0,0,0); /* Fallback color */
+           background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        }
+
+        /* Modal Content (Image) */
+        .modal-content {
+           margin: auto;
+           display: block;
+           width: 80%;
+           max-width: 700px;
+        }
+
+        /* Caption of Modal Image (Image Text) - Same Width as the Image */
+        #caption {
+           margin: auto;
+           display: block;
+           width: 80%;
+           max-width: 700px;
+           text-align: center;
+           color: #ccc;
+           padding: 10px 0;
+           height: 150px;
+        }
+
+        /* Add Animation - Zoom in the Modal */
+        .modal-content, #caption {
+           -webkit-animation-name: zoom;
+           -webkit-animation-duration: 0.6s;
+           animation-name: zoom;
+           animation-duration: 0.6s;
+        }
+
+        @-webkit-keyframes zoom {
+           from {-webkit-transform:scale(0)}
+           to {-webkit-transform:scale(1)}
+        }
+
+        @keyframes zoom {
+           from {transform:scale(0)}
+           to {transform:scale(1)}
+        }
+
+        /* The Close Button */
+        .close {
+           position: absolute;
+           top: 15px;
+           right: 35px;
+           color: #f1f1f1;
+           font-size: 40px;
+           font-weight: bold;
+           transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+           color: #bbb;
+           text-decoration: none;
+           cursor: pointer;
+        }
+
+        /* 100% Image Width on Smaller Screens */
+        @media only screen and (max-width: 700px){
+           .modal-content {
+               width: 100%;
+           }
+        }
+
+      .subheading {
+        background-color: #fff;
+        width: 1400px;
+        height: 50px;
+        line-height: 50px;
+        font-weight: bold;
+        text-align: right;
+        padding-right: 560px;
+        color: #7D7D7D;
+      }
+
+      input {
+        padding: 0;
+        height: 20px;
+        margin: 15px;
+        border-radius: 5px;
+      }
+
+      footer{
+        display: grid;
+        padding: 20px;
+        margin: 70px 0px 30px 150px;
+        height: 50px;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(4, 3fr);
+        grid-column-gap: 4vw;
+        grid-auto-columns: 25%;
+        font-size: 10px;
+        text-align: left;
+      }
+
+      footer div{
+        width: 200px;
+        margin-bottom: 20px;
+      }
+
+      #bottomfooter {
+        background-color: #f55555;
+        margin-top: 120px;
+        width: 1450px;
+        height: 100px;
+        margin-left: -80px;
+        text-align: center;
+
+      }
+
+      #bottomfooter p {
+        padding: 50px 150px 50px 150px;
+        color: white;
+        font-size: 11px;
+        text-indent: 20px;
+      }
+
+      #bottomfooter i {
+        color: white;
+      }
+
+      .scrolltop {
+      	display:none;
+      	width:100%;
+      	margin:0 auto;
+      	position:fixed;
+      	bottom:20px;
+      	right:10px;
+      }
+
+      .scroll {
+      	position:absolute;
+      	right:20px;
+      	bottom:20px;
+      	background:#b2b2b2;
+      	background:rgba(178,178,178,0.7);
+      	padding:20px;
+      	text-align: center;
+      	margin: 0 0 0 0;
+      	cursor:pointer;
+      	transition: 0.5s;
+      	-moz-transition: 0.5s;
+      	-webkit-transition: 0.5s;
+      	-o-transition: 0.5s;
+      }
+
+      .scroll:hover {
+      	background:rgba(178,178,178,1.0);
+      	transition: 0.5s;
+      	-moz-transition: 0.5s;
+      	-webkit-transition: 0.5s;
+      	-o-transition: 0.5s;
+      }
+
+      .scroll:hover .fa {
+      	padding-top:-10px;
+      }
+
+      .scroll .fa {
+      	font-size:30px;
+      	margin-top:-5px;
+      	margin-left:1px;
+      	transition: 0.5s;
+      	-moz-transition: 0.5s;
+      	-webkit-transition: 0.5s;
+      	-o-transition: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='thetop'></div>
+    <nav>
+
+      <ul>
+
+        <li><a href="JS_Project_Home.html"><img style="margin-right: 250px"  src="http://code4ct.com/wp-content/uploads/2016/06/code4ct-logo-1.jpg" height= "50px" width= "150px"></a></li>
+          <li style="margin-top:15px"><a href="JS_Project_Home.html">HOME</a></li>
+            <li style="margin-top:15px"><a href="JS_Project_About.html">ABOUT</a></li>
+                <li style="margin-top:15px"><a href="JS_Project_Portfolio.html">PORTFOLIO</a></li>
+                    <li style="margin-top:15px"><a href="JS_Project_Contact.html">CONTACT US</a></li>
+                        <li><input style="margin: 30px 0px 0px 150px; " type="search" placeholder="Search"></li>
+                        <li style="margin-top: 20px"><a href><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+
+    </nav>
+
+
+      <header>
+
+   <h1>PORTFOLIO</h1>
+   <p> Home → Contact Us </p>
+
+ </header>
+
+     <div style= "text-align: center">
+
+     <h3 class="subheading">Our Awesome Portfolio</h3>
+
+     <p style="color: #7D7D7D;">We equip high potential female learners with the coding, problem solving</p>
+
+     <p style="color: #7D7D7D;"> and life skills that will allow them to leverage technology to contribute meaningfully to South Africa’s innovation system.</p>
+
+     <p style="color: #7D7D7D;">The program exposes young women to how technology can be used for soci innovation and helps them navigate critical study decisions.</p>
+   </div>
+
+
+     <div class = "photos" style = "padding:0px; margin-left: 5px">
+
+
+        <!-- <img src="resizedImages\Square Images\image03.jpg" alt="" height="235px" width="235px;"> -->
+       <img class="galleryImg" src="Images\IMG_7408.JPG" alt="" height="235px" width="335px">
+       <img class="galleryImg" src="Images\IMG_3295.jpg" alt="" height="235px" width="335px">
+       <img class="galleryImg" src="Images\IMG_8415 (1).JPG" alt="" height="235px" width="335px">
+       <img class="galleryImg" src="Images\IMG_8497 (1).JPG" alt="" height="235px" width="335px">
+       <img class="galleryImg" src="Images\IMG_7457 (1).JPG" alt="" height="235px" width="335px">
+       <img class="galleryImg" src="Images\IMG_7407 copy.JPG" alt="" height="235px" width="180px">
+       <img class="galleryImg" src="Images\untitled-0932.jpg" alt="" height="235px" width="450px">
+       <img class="galleryImg" src="Images\IMG_8462 (1).JPG" alt="" height="235px" width="375px">
+       <img class="galleryImg" src="Images\IMG_2781.JPG" alt="" height="235px" width="345px">
+       <img class="galleryImg" src="Images\IMG_7424.JPG" alt="" height="235px" width="180px">
+       <img class="galleryImg" src="Images\IMG_7401.JPG" alt="" height="235px" width="200px">
+       <img class="galleryImg" src="Images\IMG_7451.JPG" alt="" height="235px" width="375px">
+       <img class="galleryImg" src="Images\IMG_7483.JPG" alt="" height="235px" width="240px">
+
+
+   </div>
+
+   <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
+    </div>
+   <footer>
+
+     <div>
+       <h4>Legal</h4>
+     <p>Code for Cape Town is a project of Innovate South Africa, which is a registered non-profit (137806NPO) and a Public Beneficiary Organisation (930050338)</p>
+
+   </div>
+
+   <div>
+
+   <h4>Company</h4>
+   <ul style = "padding: 5px">
+     <li><a href="JS_Project_About.html">ABOUT</a></li>
+     <li><a href="JS_Project_Portfolio.html">PORTFOLIO</a></li>
+     <li><a href="JS_Project_Courses.html">COURSES</a></li>
+     <li><a href="JS_Project_Contact.html">CONTACT</a></li>
+   </ul>
+
+ </div>
+
+ <div>
+   <h4>Learn More</h4>
+   <ul style = "padding: 1px">
+     <li><a href="JS_Project_About.html">What we do</a></li>
+     <li><a href="JS_Project_Portfolio.html">Our Work</a></li>
+     <li><a href="JS_Project_Courses.html">Opportunities</a></li>
+   </ul>
+ </div>
+
+   <div>
+     <h4>Contact</h4>
+     <p><span class="glyphicon glyphicon-earphone"></span> 021 685 0991 </p>
+     <p><span class="glyphicon glyphicon-envelope"></span> info@code4ct.com</p>
+     <p><span class="glyphicon glyphicon-map-marker"></span> Innovate South Africa, 403 Old Castle Brewery, 6 Beach Rd, Woodstock, Cape Town, 7915</p>
+   </div>
+
+   </footer>
+
+   <div id="bottomfooter">
+
+     <p style="float: left">copyright © 2017 PRIVACY POLICY</p>
+
+     <p style="float: right">Follow Us:
+       <a href="https://www.facebook.com/code4ct/" target="_blank"><i class="fa fa-facebook"></i></a>
+         <a href="https://twitter.com/@code4ct" target="_blank"><i class="fa fa-twitter"></i></a>
+         <a href="https://www.instagram.com/code4ct/" target="_blank"><i class="fa fa-instagram"></i></a>
+         <a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+         <a href="https://www.linkedin.com/company/9414552/" target="_blank"><i class="fa fa-linkedin"></i></a>
+         <a href="#" target="_blank"><i class="fa fa-skype"></i></a></p>
+
+   </div>
+
+   <div class='scrolltop'>
+     <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+ </div>
+    <script type="text/javascript">
+
+          // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = $('.galleryImg');
+        var modalImg = $("#img01");
+        var captionText = document.getElementById("caption");
+        $('.galleryImg').click(function(){
+            modal.style.display = "block";
+            var newSrc = this.src;
+            modalImg.attr('src', newSrc);
+            captionText.innerHTML = this.alt;
+        });
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        $(window).scroll(function() {
+      if ($(this).scrollTop() > 50 ) {
+          $('.scrolltop:hidden').stop(true, true).fadeIn();
+      } else {
+          $('.scrolltop').stop(true, true).fadeOut();
+      }
+    });
+    $(function(){$(".scroll").click(function() {
+      $("html,body").animate({
+        scrollTop:$(".thetop").offset().top
+      },"1000");
+      return false
+    })
+    })
+    </script>
+  </body>
+</html>
